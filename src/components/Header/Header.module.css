@@ -1,0 +1,30 @@
+.Container{
+    display: flex;
+    align-items: center;
+    gap:1%;
+    position: sticky;
+    top: 0;
+    height: 54px;
+    z-index: 100;
+    margin-bottom: 5px;
+    padding: 0 7px;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+}
+.image{
+    animation: rotation 3s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotatey(0deg);
+    }
+    to {
+      transform: rotatey(359deg);
+    }
+  }
+
+@media (max-width: 425px){
+    .Container{
+        justify-content: center;
+    }
+}
