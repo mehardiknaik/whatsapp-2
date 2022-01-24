@@ -9,17 +9,12 @@ const Formcontainer = styled.div`
   gap: 20px;
 `;
 
-const Message = ({ updateStorage }) => {
-  const { register, handleSubmit, reset } = useForm();
+const Message = ({ openWhatsapp}) => {
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const { number, message } = data;
-    var msg = "";
-    if (message) {
-      msg = `?text=${encodeURI(message)}`;
-    }
     var time=new Date()
-    updateStorage({ number, message,time });
-    // window.location.href = `http://wa.me/91${number}${msg}`;
+    openWhatsapp({ number, message,time });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

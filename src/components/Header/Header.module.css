@@ -12,14 +12,14 @@
     backdrop-filter: blur(10px);
 }
 .image{
-    animation: rotation 3s infinite linear;
+    animation: rotation 3s infinite alternate;
 }
 @keyframes rotation {
     from {
-      transform: rotatey(0deg);
+      transform: scale(0.5);
     }
     to {
-      transform: rotatey(359deg);
+      transform: scale(1.1);
     }
   }
 

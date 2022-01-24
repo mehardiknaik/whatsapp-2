@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Message from "../components/Message";
 import RecentTable from "../components/RecentTable";
@@ -19,9 +19,9 @@ const Main = () => {
   const updateStorage = (data) => {
     var newdata = recent;
     if (newdata) {
-      newdata.push(data);
+      newdata.unshift(data);
     } else {
-      var newdata = new Array(data);
+      newdata = new Array(data);
     }
 
     var receiveddata = JSON.stringify(newdata);
@@ -30,16 +30,29 @@ const Main = () => {
     setrecent(JSON.parse(localStorage.getItem("recent")));
   };
 
-  const cleanStorage=()=>{
+  const cleanStorage = () => {
     localStorage.clear();
     setrecent(JSON.parse(localStorage.getItem("recent")));
-  }
+  };
+
+  const openWhatsapp = ({ number, message, time }) => {
+    var msg = "";
+    if (message) {
+      msg = `?text=${encodeURI(message)}`;
+    }
+    updateStorage({ number, message, time });
+    window.location.href = `http://wa.me/91${number}${msg}`;
+  };
 
   return (
     <Container>
       <MainContainer>
-        <Message updateStorage={updateStorage}  />
-        <RecentTable cleanStorage={cleanStorage} recent={recent}/>
+        <Message openWhatsapp={openWhatsapp} />
+        <RecentTable
+          cleanStorage={cleanStorage}
+          recent={recent}
+          openWhatsapp={openWhatsapp}
+        />
       </MainContainer>
     </Container>
   );
