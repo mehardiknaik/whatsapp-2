@@ -35,6 +35,18 @@ const Main = () => {
     setrecent(JSON.parse(localStorage.getItem("recent")));
   };
 
+  const deleteRow = (index) => {
+    var myArray = recent;
+    var removedObject = myArray.splice(index, 1);
+    if (myArray.length <= 0) {
+      cleanStorage();
+    } else {
+      var receiveddata = JSON.stringify(myArray);
+      localStorage.setItem("recent", receiveddata);
+      setrecent(JSON.parse(localStorage.getItem("recent")));
+    }
+  };
+
   const openWhatsapp = ({ number, message, time }) => {
     var msg = "";
     if (message) {
@@ -52,10 +64,10 @@ const Main = () => {
           cleanStorage={cleanStorage}
           recent={recent}
           openWhatsapp={openWhatsapp}
+          deleteRow={deleteRow}
         />
       </MainContainer>
     </Container>
   );
 };
-
 export default Main;

@@ -12,19 +12,25 @@ import dayjs from "dayjs";
 import React from "react";
 import styled from "styled-components";
 import relativeTime from "dayjs/plugin/relativeTime";
+import Delete from "../images/delete.svg";
+import DeleteAll from "../images/deleteAll.svg";
+
 dayjs.extend(relativeTime);
 
 const Buttoncontainer = styled.div`
   text-align: right;
 `;
 
-const RecentTable = ({ cleanStorage, recent, openWhatsapp }) => {
+const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
   return (
     <>
       {recent && (
         <>
           <Buttoncontainer>
-            <Button onClick={cleanStorage}>clean all</Button>
+            <Button onClick={cleanStorage}>
+              clean all
+              <img src={DeleteAll} width={20} height={20} alt="" />
+            </Button>
           </Buttoncontainer>
 
           <TableContainer component={Paper}>
@@ -33,7 +39,8 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp }) => {
                 <TableRow>
                   <TableCell>Time</TableCell>
                   <TableCell align="center">Number</TableCell>
-                  <TableCell align="right">Message</TableCell>
+                  <TableCell align="center">Message</TableCell>
+                  <TableCell align="right">Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -53,6 +60,15 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp }) => {
                       {row.number}
                     </TableCell>
                     <TableCell align="right">{row.message}</TableCell>
+                    <TableCell align="right" onClick={() => deleteRow(index)}>
+                      <img
+                        style={{ cursor: "pointer" }}
+                        src={Delete}
+                        width={20}
+                        height={20}
+                        alt=""
+                      />
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
