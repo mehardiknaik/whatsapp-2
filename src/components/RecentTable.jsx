@@ -59,7 +59,7 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
                     >
                       {row.number}
                     </TableCell>
-                    <TableCell align="right">{row.message}</TableCell>
+                    <TableCell align="center">{row.message}</TableCell>
                     <TableCell align="right" onClick={() => deleteRow(index)}>
                       <img
                         style={{ cursor: "pointer" }}
