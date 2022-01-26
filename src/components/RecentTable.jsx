@@ -20,6 +20,9 @@ dayjs.extend(relativeTime);
 const Buttoncontainer = styled.div`
   text-align: right;
   margin:10px 0;
+  & Button {
+    gap: 15px;
+  }
 `;
 
 const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
