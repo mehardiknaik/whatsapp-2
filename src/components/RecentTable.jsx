@@ -19,6 +19,7 @@ dayjs.extend(relativeTime);
 
 const Buttoncontainer = styled.div`
   text-align: right;
+  margin:10px 0;
 `;
 
 const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
@@ -29,7 +30,7 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
           <Buttoncontainer>
             <Button onClick={cleanStorage}>
               clean all
-              <img src={DeleteAll} width={17} height={17} alt="" />
+              <img src={DeleteAll} width={11} height={11} alt="" />
             </Button>
           </Buttoncontainer>
 
