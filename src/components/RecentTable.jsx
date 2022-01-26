@@ -29,12 +29,12 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
           <Buttoncontainer>
             <Button onClick={cleanStorage}>
               clean all
-              <img src={DeleteAll} width={20} height={20} alt="" />
+              <img src={DeleteAll} width={17} height={17} alt="" />
             </Button>
           </Buttoncontainer>
 
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 40 }} aria-label="simple table">
+            <Table sx={{ minWidth: 100 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell>Time</TableCell>

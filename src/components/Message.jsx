@@ -13,6 +13,7 @@ const ButtonText = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  margin: 10px 0;
 `;
 const move = keyframes`
 0% { transform: translateX(0px);}
@@ -42,11 +43,11 @@ const Message = ({ openWhatsapp }) => {
           label="Phone no"
           type="number"
           variant="outlined"
-          {...register("number", { required: true, pattern: /(7|8|9)\d{9}/ })}
+          {...register("number", { required: true, pattern: /(7|8|9)\d{9}$/ })}
         />
         <TextField
           id="outlined-multiline-static"
-          label="Message"
+          label="Message (Optional)"
           multiline
           rows={4}
           // defaultValue="Default Value"
