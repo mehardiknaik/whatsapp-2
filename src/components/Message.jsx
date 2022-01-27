@@ -32,8 +32,7 @@ const Message = ({ openWhatsapp }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const { number, message } = data;
-    var time = new Date();
-    openWhatsapp({ number, message, time });
+    openWhatsapp({ number, message });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

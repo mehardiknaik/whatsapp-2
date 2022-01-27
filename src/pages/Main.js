@@ -60,11 +60,12 @@ const Main = () => {
     }
   };
 
-  const openWhatsapp = ({ number, message, time }) => {
+  const openWhatsapp = ({ number, message }) => {
     var msg = "";
     if (message) {
       msg = `?text=${encodeURI(message)}`;
     }
+    var time = new Date();
     updateStorage({ number, message, time });
     window.location.href = `http://wa.me/91${number}${msg}`;
   };
