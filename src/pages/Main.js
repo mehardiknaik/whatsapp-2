@@ -17,7 +17,7 @@ toast.configure({
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin: 27px 0;
   flex-direction: column;
 `;
 

@@ -71,9 +71,8 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
               </TableHead>
               <TableBody>
                 {recent.map((row, index) => (
-                  <>
+                  <React.Fragment key={index}>
                     <TableRow
-                      key={index}
                       sx={{ "& th,td": { borderBottom: "unset" } }}
                     >
                       <TableCell component="th" scope="row">
@@ -128,7 +127,7 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
                         </Collapse>
                       </TableCell>
                     </TableRow>
-                  </>
+                  </React.Fragment >
                 ))}
               </TableBody>
             </Table>
