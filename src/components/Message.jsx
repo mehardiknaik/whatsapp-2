@@ -4,11 +4,11 @@ import { useForm } from "react-hook-form";
 import styled, { keyframes } from "styled-components";
 import Send from "../images/send.svg";
 
-const Formcontainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
+const MainContainer=styled.form`
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
 const ButtonText = styled.div`
   display: flex;
   flex: 1;
@@ -16,12 +16,8 @@ const ButtonText = styled.div`
   margin: 10px 0;
 `;
 const move = keyframes`
-0% { transform: translateX(0px);}
-50% { transform: translateX(0px);}
-75% { transform: translateX(-15px);}
-84% { transform: translateX(0px);}
-92% { transform: translateX(-15px);}
-100% { transform: translateX(0px);}
+0%,50%,84% ,100% { transform: translateX(0px);}
+75%,92% { transform: translateX(-15px);}
 `;
 const ButtonIcon = styled.div`
   display: flex;
@@ -35,8 +31,7 @@ const Message = ({ openWhatsapp }) => {
     openWhatsapp({ number, message });
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Formcontainer>
+    <MainContainer onSubmit={handleSubmit(onSubmit)}>
         <TextField
           id="outlined-basic"
           label="Phone no"
@@ -58,8 +53,7 @@ const Message = ({ openWhatsapp }) => {
             <img src={Send} width={20} height={20} alt="" />
           </ButtonIcon>
         </Button>
-      </Formcontainer>
-    </form>
+    </MainContainer>
   );
 };
 

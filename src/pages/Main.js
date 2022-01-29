@@ -2,6 +2,7 @@ import { Container } from "@mui/material";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import DialogBox from "../components/DialogBox";
 import Message from "../components/Message";
 import RecentTable from "../components/RecentTable";
 toast.configure({
@@ -25,6 +26,7 @@ const Main = () => {
   const [recent, setrecent] = useState(
     JSON.parse(localStorage.getItem("recent"))
   );
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const updateStorage = (data) => {
     var newdata = recent;
@@ -42,13 +44,14 @@ const Main = () => {
   const cleanStorage = () => {
     localStorage.clear();
     setrecent(JSON.parse(localStorage.getItem("recent")));
+    setDialogOpen(false);
     toast("All Numbers are Deleted");
   };
 
   const deleteRow = (index) => {
     var myArray = recent;
     var removedObject = myArray.splice(index, 1);
-    console.log('removedObject :',  JSON.stringify(removedObject));
+    console.log("removedObject :", JSON.stringify(removedObject));
 
     if (myArray.length <= 0) {
       cleanStorage();
@@ -75,12 +78,17 @@ const Main = () => {
       <MainContainer>
         <Message openWhatsapp={openWhatsapp} />
         <RecentTable
-          cleanStorage={cleanStorage}
           recent={recent}
           openWhatsapp={openWhatsapp}
           deleteRow={deleteRow}
+          setDialogOpen={setDialogOpen}
         />
       </MainContainer>
+      <DialogBox
+        dialogOpen={dialogOpen}
+        setDialogOpen={setDialogOpen}
+        cleanStorage={cleanStorage}
+      />
     </Container>
   );
 };

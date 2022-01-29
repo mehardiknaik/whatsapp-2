@@ -38,7 +38,7 @@ const ExpandContainer = styled.div`
   }
 `;
 
-const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
+const RecentTable = ({ recent, openWhatsapp, deleteRow, setDialogOpen }) => {
   const [rowData, setrowData] = useState(null);
 
   return (
@@ -46,12 +46,11 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
       {recent && (
         <>
           <Buttoncontainer>
-            <Button onClick={cleanStorage}>
+            <Button onClick={() => setDialogOpen(true)}>
               clean all
               <img src={DeleteAll} width={11} height={11} alt="" />
             </Button>
           </Buttoncontainer>
-
           <TableContainer
             sx={{ backgroundColor: "transparent" }}
             component={Paper}
@@ -72,9 +71,7 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
               <TableBody>
                 {recent.map((row, index) => (
                   <React.Fragment key={index}>
-                    <TableRow
-                      sx={{ "& th,td": { borderBottom: "unset" } }}
-                    >
+                    <TableRow sx={{ "& th,td": { borderBottom: "unset" } }}>
                       <TableCell component="th" scope="row">
                         {dayjs(row.time).fromNow()}
                       </TableCell>
@@ -127,7 +124,7 @@ const RecentTable = ({ cleanStorage, recent, openWhatsapp, deleteRow }) => {
                         </Collapse>
                       </TableCell>
                     </TableRow>
-                  </React.Fragment >
+                  </React.Fragment>
                 ))}
               </TableBody>
             </Table>
