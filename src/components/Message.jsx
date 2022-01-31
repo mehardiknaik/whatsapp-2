@@ -44,7 +44,6 @@ const Message = ({ openWhatsapp }) => {
           label="Message (Optional)"
           multiline
           rows={4}
-          // defaultValue="Default Value"
           {...register("message")}
         />
         <Button type="submit" variant="text">

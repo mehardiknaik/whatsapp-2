@@ -64,7 +64,6 @@ const RecentTable = ({ recent, openWhatsapp, deleteRow, setDialogOpen }) => {
                 <TableRow>
                   <TableCell>Time</TableCell>
                   <TableCell align="center">Number</TableCell>
-                  {/* <TableCell align="center">Message</TableCell> */}
                   <TableCell align="right">Action</TableCell>
                 </TableRow>
               </TableHead>

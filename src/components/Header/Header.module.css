@@ -1,32 +1,32 @@
-.Container{
-    display: flex;
-    align-items: center;
-    gap:1%;
-    position: sticky;
-    top: 0;
-    height: 54px;
-    z-index: 100;
-    margin-bottom: 5px;
-    padding: 0 7px;
-    transition: all 0.5s ease;
-    backdrop-filter: blur(10px);
+.Container {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  position: sticky;
+  top: 0;
+  height: 54px;
+  z-index: 100;
+  margin-bottom: 5px;
+  padding: 0 7px;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
 }
-.image{
-    animation: rotation 3s infinite alternate;
+.image {
+  animation: rotation 3s infinite alternate;
 }
 @keyframes rotation {
-    from {
-      transform: scale(0.5);
-    }
-    to {
-      transform: scale(1.1);
-    }
+  from {
+    transform: scale(0.5);
   }
+  to {
+    transform: scale(1.1);
+  }
+}
 
-@media (max-width: 425px){
-    .Container{
-        justify-content: center;
-    }
+@media (max-width: 425px) {
+  .Container {
+    justify-content: center;
+  }
 }
 input[type="checkbox"] {
   position: absolute;
@@ -49,10 +49,13 @@ input[type="checkbox"]:checked ~ div {
     filter: hue-rotate(360deg);
   }
 }
-.text{
+.text {
   display: flex;
   font-size: 1.6rem;
 }
 li {
   list-style: none;
+}
+input {
+  -webkit-tap-highlight-color: transparent;
 }
