@@ -74,7 +74,9 @@ const RecentTable = ({ recent, openWhatsapp, deleteRow, setDialogOpen }) => {
                       <TableCell component="th" scope="row">
                         {dayjs(row.time).fromNow()}
                       </TableCell>
-                      <TableCell align="center">{row.number}</TableCell>
+                      <TableCell align="center" sx={{ whiteSpace: "pre" }}>
+                        {row.CCode} {row.number}
+                      </TableCell>
                       <TableCell
                         align="right"
                         onClick={() => setrowData(rowData === row ? null : row)}

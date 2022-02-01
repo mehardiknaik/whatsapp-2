@@ -63,14 +63,15 @@ const Main = () => {
     }
   };
 
-  const openWhatsapp = ({ number, message }) => {
+  const openWhatsapp = ({ number, message,CCode }) => {
+    console.log(number, message,CCode);
     var msg = "";
     if (message) {
       msg = `?text=${encodeURI(message)}`;
     }
     var time = new Date();
-    updateStorage({ number, message, time });
-    window.location.href = `http://wa.me/91${number}${msg}`;
+    updateStorage({ number, message, time,CCode });
+    window.location.href = `http://wa.me/${CCode}${number}${msg}`;
   };
 
   return (
