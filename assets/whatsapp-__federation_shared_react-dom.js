@@ -1,4 +1,4 @@
-import{r as za,g as Pa}from"./__federation_shared_react-OCq13AAP.js";var Co={exports:{}},ve={},xo={exports:{}},_o={};/**
+import{r as za,g as Pa}from"./whatsapp-__federation_shared_react.js";var Co={exports:{}},ve={},xo={exports:{}},_o={};/**
  * @license React
  * scheduler.production.min.js
  *
