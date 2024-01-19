@@ -10,7 +10,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import styled, { keyframes } from "styled-components";
 import Send from "../images/send.svg";
-import {Countries} from "./Data/Countries";
+import { Countries } from "./Data/Countries";
 
 const MainContainer = styled.form`
   display: flex;
@@ -60,7 +60,9 @@ const Message = ({ openWhatsapp }) => {
                 labelId="campaign_budget_label"
               >
                 {Countries.map((country) => (
-                  <MenuItem value={country.Code}>{country.Name} {country.Code}</MenuItem>
+                  <MenuItem value={country.Code} key={country.Code}>
+                    {country.Name} {country.Code}
+                  </MenuItem>
                 ))}
               </Select>
             )}

@@ -5,16 +5,16 @@ import styled from "styled-components";
 import DialogBox from "../components/DialogBox";
 import Message from "../components/Message";
 import RecentTable from "../components/RecentTable";
-toast.configure({
-  position: "top-center",
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  icon: "✅",
-});
+// toast.configure({
+//   position: "top-center",
+//   autoClose: 5000,
+//   hideProgressBar: false,
+//   closeOnClick: true,
+//   pauseOnHover: true,
+//   draggable: true,
+//   progress: undefined,
+//   icon: "✅",
+// });
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ const Main = () => {
     localStorage.clear();
     setrecent(JSON.parse(localStorage.getItem("recent")));
     setDialogOpen(false);
-    toast("All Numbers are Deleted");
+    toast.success("All Numbers are Deleted");
   };
 
   const deleteRow = (index) => {
@@ -59,18 +59,18 @@ const Main = () => {
       var receiveddata = JSON.stringify(myArray);
       localStorage.setItem("recent", receiveddata);
       setrecent(JSON.parse(localStorage.getItem("recent")));
-      toast(`${removedObject[0].number} are Deleted`);
+      toast.success(`${removedObject[0].number} are Deleted`);
     }
   };
 
-  const openWhatsapp = ({ number, message,CCode }) => {
-    console.log(number, message,CCode);
+  const openWhatsapp = ({ number, message, CCode }) => {
+    console.log(number, message, CCode);
     var msg = "";
     if (message) {
       msg = `?text=${encodeURI(message)}`;
     }
     var time = new Date();
-    updateStorage({ number, message, time,CCode });
+    updateStorage({ number, message, time, CCode });
     window.location.href = `http://wa.me/${CCode}${number}${msg}`;
   };
 
